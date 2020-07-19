@@ -1,13 +1,18 @@
 {
-  "name": "src",
-  "short_name": "src",
+  "name": "Kakegoe Blazor",
+  "short_name": "kakegoe-blazor",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#03173d",
+  "background_color": "#3367D6",
+  "theme_color": "#3367D6",
   "icons": [
     {
-      "src": "icon-512.png",
+      "src": "/images/icons-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/icons-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }

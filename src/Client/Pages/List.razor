@@ -1,0 +1,14 @@
+﻿@page "/list"
+
+<h1>Song List</h1>
+
+<fast-menu>
+@foreach (var song in Songs)
+{
+    <fast-menu-item>@song</fast-menu-item>
+}
+</fast-menu>
+
+@code {
+    private List<string> Songs = new List<string>() { "Song 1", "Song 2", "Song 3" };
+}
