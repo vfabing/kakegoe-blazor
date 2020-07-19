@@ -185,3 +185,7 @@ app {
 :root, body, fast-design-system-provider {
     height: 100%;
 }
+
+fast-menu {
+    max-width: unset;
+}
