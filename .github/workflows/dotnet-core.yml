@@ -1,0 +1,38 @@
+name: Build and Publish
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  AZURE_WEBAPP_NAME: kakegoe-blazor
+  AZURE_WEBAPP_PACKAGE_PATH: './published'
+  NETCORE_VERSION: '3.1.301'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies
+      run: dotnet restore src/KakegoeBlazor.sln
+    - name: Build
+      run: dotnet build --configuration Release --no-restore src/KakegoeBlazor.sln
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal src/KakegoeBlazor.sln
+    - name: Publish
+      run: dotnet publish --configuration Release --no-build --output ${{ env.AZURE_WEBAPP_PACKAGE_PATH }} src/Server/KakegoeBlazor.Server.csproj
+    - name: Deploy
+      uses: azure/webapps-deploy@v1
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
