@@ -9,12 +9,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Client\src.Client.csproj" />
-    <ProjectReference Include="..\Shared\src.Shared.csproj" />
+    <ProjectReference Include="..\Client\KakegoeBlazor.Client.csproj" />
+    <ProjectReference Include="..\Shared\KakegoeBlazor.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Watch Include="..\Client\**\*.razor"/>
+    <Watch Include="..\Client\**\*.razor" />
   </ItemGroup>
 
 </Project>

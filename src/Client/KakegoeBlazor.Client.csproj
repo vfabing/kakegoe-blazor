@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shared\src.Shared.csproj" />
+    <ProjectReference Include="..\Shared\KakegoeBlazor.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

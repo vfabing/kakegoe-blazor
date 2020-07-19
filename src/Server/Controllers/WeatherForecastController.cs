@@ -1,12 +1,11 @@
-﻿using src.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using KakegoeBlazor.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace src.Server.Controllers
+namespace KakegoeBlazor.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
