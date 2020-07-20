@@ -1,14 +1,21 @@
 ﻿@page "/list"
+@using KakegoeBlazor.Shared.Models
+@inject HttpClient client
 
 <h1>Song List</h1>
 
 <fast-menu>
-    @foreach (var song in Songs)
+    @foreach (var song in songs)
     {
-        <fast-menu-item>@song</fast-menu-item>
+        <fast-menu-item>@song.Title</fast-menu-item>
     }
 </fast-menu>
 
 @code {
-    private List<string> Songs = new List<string>() { "Song 1", "Song 2", "Song 3" };
+    private IEnumerable<Song> songs = new List<Song>() { };
+
+    protected override async Task OnInitializedAsync()
+    {
+        songs = await client.GetFromJsonAsync<IEnumerable<Song>>("api/songs");
+    }
 }

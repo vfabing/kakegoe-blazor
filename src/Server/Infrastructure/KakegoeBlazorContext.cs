@@ -10,10 +10,5 @@ namespace KakegoeBlazor.Server.Infrastructure
         }
 
         public DbSet<Song> Songs { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
     }
 }

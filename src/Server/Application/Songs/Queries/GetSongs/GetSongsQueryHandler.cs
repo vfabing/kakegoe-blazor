@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using KakegoeBlazor.Server.Infrastructure;
 using KakegoeBlazor.Shared.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace KakegoeBlazor.Server.Application.Songs.Queries.GetSongs
 {
@@ -16,12 +17,7 @@ namespace KakegoeBlazor.Server.Application.Songs.Queries.GetSongs
 
         public override async Task<IEnumerable<Song>> HandleAsync(GetSongsQuery query)
         {
-            return await Task.FromResult(new List<Song>()
-            {
-                new Song { Title = "Song 1" },
-                new Song { Title = "Song 2" },
-                new Song { Title = "Song 3" },
-            });
+            return await Context.Songs.ToListAsync();
         }
     }
 }
