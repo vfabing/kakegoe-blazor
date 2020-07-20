@@ -1,3 +1,5 @@
+using KakegoeBlazor.Server.Application;
+using KakegoeBlazor.Server.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +24,9 @@ namespace KakegoeBlazor.Server
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.ConfigureApplication();
+            services.ConfigureContext();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
